@@ -1,9 +1,22 @@
 [phases.setup]
+# Use specific versions to ensure stability
 nixPkgs = ["python311", "ffmpeg"]
-aptPkgs = ["libopus-dev", "libnacl-dev"]
+# System libraries required for Discord voice (Opus/NaCl)
+aptPkgs = ["libopus-dev", "libnacl-dev", "build-essential"]
 
 [phases.install]
-cmds = ["python -m venv /opt/venv && /opt/venv/bin/pip install -r requirements.txt"]
+# Custom Install: Create a virtual environment and install requirements
+cmds = [
+    "python -m venv /opt/venv",
+    "/opt/venv/bin/pip install --upgrade pip",
+    "/opt/venv/bin/pip install -r requirements.txt"
+]
+
+[phases.build]
+# Custom Build: This is where you'd add steps like compiling assets if needed
+# For a bot, we just ensure the install phase completed
+dependsOn = ["install"]
 
 [start]
+# Custom Start: Explicitly call the python binary inside the virtual environment
 cmd = "/opt/venv/bin/python bot.py"
