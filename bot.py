@@ -12,7 +12,7 @@ load_dotenv("env.txt")
 # We pull these from Railway Environment Variables
 TOKEN = os.getenv("DISCORD_TOKEN")
 VOICE_CH_ID = os.getenv("VOICE_CHANNEL_ID")
-STREAM_URL = "http://stream.radiojar.com/0tpy1h0kxtzuv" 
+STREAM_URL = "https://image2url.com/r2/default/audio/1772379929071-7c44843b-4047-44ce-8473-53b5cb9df981.mp3" 
 
 intents = discord.Intents.default()
 intents.message_content = True
