@@ -12,7 +12,7 @@ load_dotenv("env.txt")
 # We pull these from Railway Environment Variables
 TOKEN = os.getenv("DISCORD_TOKEN")
 VOICE_CH_ID = os.getenv("VOICE_CHANNEL_ID")
-STREAM_URL = "http://icecast.lofi-girl.com/lofigirl.mp3" 
+STREAM_URL = "http://stream.radiojar.com/0tpy1h0kxtzuv" 
 
 intents = discord.Intents.default()
 intents.message_content = True
